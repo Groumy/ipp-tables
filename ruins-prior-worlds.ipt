@@ -1,0 +1,67 @@
+Header: Generation of a ruin of the Prior World for Numenera.
+Categry: Numenera/Locations
+
+Table: StartingTable
+<ul>[@MainFeature]</ul>
+
+Table: MainFeature
+Type: Lookup
+Roll: 1d100
+01-20: [@Corridor]
+21-58: Chamber
+59-70: Creature
+71-75: Explorers
+76-79: Interstitial cavity
+80-82: Accessway
+83-85: Rupture
+86-88: Shaft
+89-91: Abhuman colony
+92-93: Integrated machine
+94-95: Matter leak
+96-97: Energy discharge
+98: Weird event
+99: Vault
+100: Relic chamber
+
+Table: Marker
+Some cryptic route marker;
+19:  
+
+Table: MidnightStones
+{1d2} midnight stones;
+9: 
+
+Table: Corridor
+<li>[@Marker] [@MidnightStones] [@CorridorDetail]</li>
+
+Table: CorridorDetail
+Type: Lookup
+Roll: 1d20
+01-07: Passage extends <b>20 feet</b> (6 m); <ul>[@Corridor]</ul>
+08-10: Passage extends a <b>short distance</b>
+11: Passage blocked by a <b>corridor collapse</b>
+12: Passage comes to a <b>dead end</b>
+13: Passage bends <b>left</b>
+14: Passage bends <b>right</b>
+15: Passage slopes <b>up</b>
+16: Passage slopes <b<down</b>
+17: Passage runs a short distance parallel to previous chamber or corridor (ignore if no previously rolled chamber or corridor), then : <ul>[@Corridor]</ul> 
+18: Passage runs an immediate distance into an interstitial cavity, then runs an additional distance across that cavity’s entire width as a catwalk, then retur as a normal corridor; <ul><li><b>Interstitial Cavity</b>: [@IntertsitialCavity]</li> <li><b>Subsequent corridor</b> :<ul> [@Corridor]</ul></li></ul>
+19: Passage runs a short distance and comes to a T intersection,<ul><li><b>Firt Branch :</b><ul>[@Corridor]</ul></li><li><b>Second Branch:</b><ul>[@Corridor]</ul></li></ul>
+20: Passage runs a short distance and comes to an X intersection,<ul><li><b>Firt Branch :</b><ul>[@Corridor]</ul></li><li><b>Second Branch:</b><ul>[@Corridor]</ul></li><li><b>Third Branch:</b><ul>[@Corridor]</ul></li></ul> 
+
+Table: Exits
+Type: Lookup
+Roll:  1d20
+1-4: No additional exits
+5-12: 1 additional exit
+13-14: 1 additional sealed* exit
+15: 2 additional exits
+16: 1 additional exit + 1 sealed* exit
+17: 2 additional exits + 1 sealed* exit
+18: 2 sealed* exits
+19: 1 additional trapped** exit, roll again
+20: 1 additional hidden*** exit, roll again
+
+Table: ExitToMainFeture
+[@Markers], [@MainFeature]
